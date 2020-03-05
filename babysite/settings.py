@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'babysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'blog'),
-        'USER': os.environ.get('DB_USER','ajkim'),
-        'PASSWORD': os.environ.get('DB_PASS','2539Excellent'),
+        'NAME': os.environ.get('DB_NAME', 'd1djt4r23j1rhg'),
+        'USER': os.environ.get('DB_USER','cgxxjapyommdhq'),
+        'PASSWORD': os.environ.get('DB_PASS','130c2337255ff79f42b38edc0f1bb279bec977e6d815015395bb10c544292bdc'),
         'HOST': 'localhost',
         'PORT': '5432',
     }
