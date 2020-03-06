@@ -26,7 +26,7 @@ SECRET_KEY = 'w3vttyd-5u@5l4a4kr47uu95aa6y5(95k=_bc02q7ja-7@f)x*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,3 +127,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 django_heroku.settings(locals())
+
+# Parse database configuration from $DATABASE_URL
+if ENV_ROLE == 'production':
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
+
