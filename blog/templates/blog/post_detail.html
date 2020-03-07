@@ -1,13 +1,24 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
+    <article>
+    <div class="container">
+    <div class="row">
+    <div class="post-preview">
+        <h2 class="post-title">{{ post.title }}</h2>
         {% if post.published_date %}
-            <div class="date">
+            <div class="post-meta">
                 {{ post.published_date }}
             </div>
+        {% endif %}    
+        <div class="col-md-10 col-lg-8 mx-auto">
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        {% if user.is_authenticated %}
+        <button type="button" class="btn btn-primary btn-sm" onclick="location.href='{% url 'post_edit' pk=post.pk %}'">Edit</button>
         {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaksbr }}</p>
     </div>
+    </div>
+    </div>
+    </article>
 {% endblock %}
