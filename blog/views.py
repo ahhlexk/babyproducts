@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post
 from .forms import PostForm
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from .forms import SubscriberForm
 
 
 # Create your views here.
@@ -16,3 +19,20 @@ def post_detail(request, pk):
 def post_new(request):
     form = PostForm()
     return render(request, 'blog/post_edit.html', {'form':form})
+
+def subscriber_new(request, template = 'subscribers/subscriber_new.html'):
+    if request.method == 'POST':
+        form = SubscriberForm(request.POST)
+        if form.is_valid():
+            # Unpack form values
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            email = form.cleaned_data['email']
+            user = User(username=username, email=email)
+            user.set_password(password)
+            user.save()
+            return HttpResponseRedirect('/success/')
+    else:
+        form = SubscriberForm()
+        
+    return render(request, template, {'form':form})
