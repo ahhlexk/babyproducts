@@ -16,3 +16,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Contact(models.Model):
+    email = models.EmailField(blank=False)
+    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    message = models.CharField(max_length=500)

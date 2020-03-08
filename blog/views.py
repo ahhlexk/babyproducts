@@ -5,7 +5,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from .forms import SubscriberForm
+from .forms import ContactForm
 from django.shortcuts import redirect
+from django.http import HttpResponse, HttpResponseRedirect
+
 
 
 
@@ -61,3 +64,22 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def contact(request, template='contact/contact.html'):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            post = form.save(commit=False)
+            post.save()
+            return HttpResponseRedirect('/success')
+    else: 
+        form = ContactForm()
+    return render(request, 'contact/contact.html', {'form': form})
+
+def success(request):
+    return render(request, 'contact/success.html')
+            
