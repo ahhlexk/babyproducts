@@ -2,6 +2,8 @@ from django import forms
 from .models import Post
 from .models import Contact
 from django.contrib.auth.forms import UserCreationForm
+from crispy_forms.helper import FormHelper
+
 
 
 class PostForm(forms.ModelForm):
@@ -24,7 +26,10 @@ class SubscriberForm(UserCreationForm):
     )
 
 class ContactForm(forms.ModelForm):
+
     class Meta:
         model = Contact
         fields = ('email', 'name','subject','message',)
-    
+
+
+

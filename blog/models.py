@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 
+
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
@@ -21,4 +22,4 @@ class Contact(models.Model):
     email = models.EmailField(blank=False)
     name = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)
-    message = models.CharField(max_length=500)
+    message = models.TextField(max_length=500)

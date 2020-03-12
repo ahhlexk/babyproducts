@@ -1,9 +1,32 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h2>Contact Form</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn btn-primary" type="submit" value="Submit"></input>
-    </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+            <h2>Contact Form</h2>
+            
+            <form id="contact-form" method="POST" class="post-form">
+            {% csrf_token %}
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">{{ form.email|as_crispy_field }}<small class="form-text text-danger help-block"></small></div>
+                </div>
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">{{ form.name|as_crispy_field }}<small class="form-text text-danger help-block"></small></div>
+                </div>
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">{{ form.subject|as_crispy_field }}<small class="form-text text-danger help-block"></small></div>
+                </div>
+
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">{{ form.message|as_crispy_field }}<small class="form-text text-danger help-block"></small></div>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Submit"></input>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -5,8 +5,9 @@
     <div class="post-preview">
         <a href="#">
             <h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p class="post-meta">published: {{ post.published_date }}</p>
+            <p class="post-meta">created: {{ post.published_date }}</p>
             <p class="post-subtitle"><p>{{ post.text|linebreaksbr }}</p>
+            <hr>
         </a>
     </div>
     {% endfor %}

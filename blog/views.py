@@ -73,7 +73,7 @@ def contact(request, template='contact/contact.html'):
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
-            post = form.save(commit=False)
+            post = form.save()
             post.save()
             return HttpResponseRedirect('/success')
     else: 

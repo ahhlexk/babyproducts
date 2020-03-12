@@ -1,0 +1,42 @@
+@media (max-width:990px){
+    .logo-replace{
+        width:60px;
+        background:url(../img/logo_black.png) center no-repeat;
+        background-size:cover;
+        object-position:-99999px -9999px
+    }
+}
+@media (min-width:990px){
+    .logo-replace{
+        width:72px;
+        height:72px;
+        background:url(../img/logo.png) center no-repeat;
+        background-size:cover
+    }
+}
+    #logo-1{
+        width:55px;
+        height:55px;
+        background:url(../img/logo_black.png) center no-repeat;
+        background-size:cover;
+        display:none
+    }
+
+    .form-field{
+        background-color: red;
+    }
+
+    #id_email{
+        width:500px;
+        font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+    #id_name{
+        width:500px;
+    }
+    #id_subject{
+        width:500px;
+    }
+    #id_message{
+        width:500px;
+        height:200px
+    }
