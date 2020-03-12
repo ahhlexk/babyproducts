@@ -82,4 +82,7 @@ def contact(request, template='contact/contact.html'):
 
 def success(request):
     return render(request, 'contact/success.html')
+
+def about(request):
+    return render(request, 'blog/about.html')
             

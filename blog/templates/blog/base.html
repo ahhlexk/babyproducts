@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Blog Post - Brand</title>
+    <title>Laughin Baby Blog</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,14 +23,26 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'post_list' %}">Home</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="/about.html">About us</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'about' %}">About us</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="/post.html">Blog Post</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'sub_new' %}">Sign Up</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'post_list' %}">Blog Post</a></li>
                     </ul>
                 </div>
         </div>
     </nav>
+    {% if request.get_full_path == "/about" %}
+    <header class="masthead" style="background-image: url('/static/img/about-bg.jpg');height: 373px;background-position: 50% 50%;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 col-xl-10 offset-xl-0 mx-auto">
+                    <div class="site-heading" style="padding: 70px;">
+                        <h1 class="d-inline-block" style="font-size: 60px;margin: 50px 0px 0px 8px;">About Us</h1><span class="subheading">We love making babies laugh and smile!</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% else %}
     <header class="masthead" style="background-image: url('/static/img/baby_blog.png');height: 373px;background-position: 50% 50%;">
         <div class="overlay"></div>
         <div class="container">
@@ -42,6 +54,7 @@
             </div>
         </div>
     </header>
+    {% endif %}
         <div class="container"> 
             <div class="row">
                 <div class="col-md-8 col-lg-8 offset-lg-2">

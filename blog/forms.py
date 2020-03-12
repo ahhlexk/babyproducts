@@ -7,6 +7,8 @@ from crispy_forms.helper import FormHelper
 
 
 class PostForm(forms.ModelForm):
+    title = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Title'}))
+    text = forms.CharField(required=True, widget=forms.Textarea(attrs={'placeholder': 'Post'}))
     class Meta:
         model = Post
         fields = ('title', 'text',)
@@ -26,7 +28,10 @@ class SubscriberForm(UserCreationForm):
     )
 
 class ContactForm(forms.ModelForm):
-
+    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Email'}))
+    name = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Name'}))
+    subject = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Subject'}))
+    message = forms.CharField(required=True, widget=forms.Textarea(attrs={'placeholder': 'Message'}))
     class Meta:
         model = Contact
         fields = ('email', 'name','subject','message',)
