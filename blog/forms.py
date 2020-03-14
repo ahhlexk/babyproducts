@@ -3,6 +3,7 @@ from .models import Post
 from .models import Contact
 from django.contrib.auth.forms import UserCreationForm
 from crispy_forms.helper import FormHelper
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 
@@ -11,7 +12,11 @@ class PostForm(forms.ModelForm):
     text = forms.CharField(required=True, widget=forms.Textarea(attrs={'placeholder': 'Post'}))
     class Meta:
         model = Post
-        fields = ('title', 'text',)
+        fields = (
+            'title', 
+            'text', 
+            'tags',
+            )
 
 class SubscriberForm(UserCreationForm):
     email = forms.EmailField(

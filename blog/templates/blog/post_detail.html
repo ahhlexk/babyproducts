@@ -11,7 +11,7 @@
                 {{ post.published_date }}
             </div>
         {% endif %}    
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p>{{ post.text|safe }}</p>
         {% if user.is_authenticated %}
         <button type="button" class="btn btn-primary btn-sm" onclick="location.href='{% url 'post_edit' pk=post.pk %}'">Edit</button>
         {% endif %}

@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'crispy_forms',
+    'django_summernote',
+    'taggit',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -156,3 +158,6 @@ if ENV_ROLE == 'production':
     import dj_database_url
     DATABASES['default'] =  dj_database_url.config()
 
+#Media Files Config
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
