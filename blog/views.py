@@ -8,11 +8,32 @@ from .forms import SubscriberForm
 from .forms import ContactForm
 from django.shortcuts import redirect
 from django.http import HttpResponse, HttpResponseRedirect
-
+from django.template.defaultfilters import slugify
+from taggit.models import Tag
+from django.views.generic import DetailView, ListView
 
 
 
 # Create your views here.
+class TagMixin(object):
+    def get_context_data(self, **kwargs):
+        context = super(TagMixin, self).get_context_data(**kwargs)
+        context["tags"] = Tag.objects.all()
+        return context
+
+class PostList(TagMixin, ListView):
+    template_name = 'blog/post_list.html'
+    model = Post
+    paginate_by = '10'
+    queryset = Post.objects.all()
+    context_object_name = 'posts'
+
+class PostDetail(TagMixin, DetailView):
+    template_name = 'blog/post_detail.html'
+    model = Post
+    queryset = Post.objects.all()
+    context_object_name = 'post'
+"""
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts':posts})
@@ -20,36 +41,22 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post':post})
-
+"""
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            post.slug = slugify(post_new.title)
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
+            form.save_m2m()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form':form})
 
-def subscriber_new(request, template = 'subscribers/subscriber_new.html'):
-    if request.method == 'POST':
-        form = SubscriberForm(request.POST)
-        if form.is_valid():
-            # Unpack form values
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            email = form.cleaned_data['email']
-            user = User(username=username, email=email)
-            user.set_password(password)
-            user.save()
-            return HttpResponseRedirect('/success/')
-    else:
-        form = SubscriberForm()
-        
-    return render(request, template, {'form':form})
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -86,3 +93,15 @@ def success(request):
 def about(request):
     return render(request, 'blog/about.html')
             
+
+class TagIndexView(TagMixin, ListView):
+    template_name = 'blog/post_list.html'
+    model = Post
+    paginate_by = '10'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return Post.objects.filter(tags__slug=self.kwargs.get('slug'))
+
+
+        
