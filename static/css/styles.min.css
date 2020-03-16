@@ -1,3 +1,8 @@
+    #page-container{
+        position:relative;
+        min-height:100vh;
+    }
+
 @media (max-width:990px){
     .logo-replace{
         width:60px;
@@ -169,4 +174,29 @@
     a.article:hover {
         background: #6d7fcc !important;
         color: #fff !important;
+    }
+    .footer {
+        line-height: 60px;
+        background-color: #7a7a7a62;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    #footer-menu {
+        font-size:14px;
+        line-height:1.8;
+        
+    }
+    .footer-header {
+        display: block;
+        font-size: 1rem;
+        text-transform: uppercase;
+        color:#17a2b8;
+        font-weight: 600;
+        margin: 1rem 0;
+        padding: .4rem 0px;
+        border-bottom: 1px solid black; 
+        letter-spacing: 3px;
+    }
+    #footer-menu-item {
+        line-height:1.8;
     }
