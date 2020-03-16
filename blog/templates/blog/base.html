@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-tagsinput.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">   
 </head>
 
 <body>
@@ -31,6 +32,29 @@
                 </div>
         </div>
     </nav>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fa fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>Categories</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                {% for tag in tags %}
+                    <li><a href="{% url 'tagged' tag.slug %}">{{ tag.name }}</a></li>
+                {% empty %}
+                    <li>No Tags</li>
+                {% endfor %}
+                </li>
+            </ul>
+        </nav>
+        <!-- Dark Overlay element -->
+        <div class="overlay2"></div>
+    </div>
     {% if request.get_full_path == "/about" %}
     <header class="masthead" style="background-image: url('/static/img/about-bg.jpg');height: 373px;background-position: 50% 50%;">
         <div class="overlay"></div>
@@ -56,22 +80,25 @@
         </div>
     </header>
     {% endif %}
-    <div class="col-sm-2">
-        <div class="panel panel-default">
-        <div class="panel heading">
-        Categories
+    {% if request.get_full_path == "/about" %}
+        <br>
+    {% elif request.get_full_path == "/contact" %}
+        <br>
+    {% else %}
+        <!-- Page Content for sidebar-->
+        <div id="content" class="col-md-8 col-lg-8 offset-lg-2">
+            <nav>
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-sm">
+                        <i class="fa fa-align-left"></i>
+                        <span>Categories</span>
+                    </button>
+                    
+                </div>
+            </nav>
+        <br>
+    {% endif %}
         </div>
-        <div class="panel-body">
-            <ul>
-            {% for tag in tags %}
-                <li><a href="{% url 'tagged' tag.slug %}">{{ tag.name }}</a></li>
-            {% empty %}
-                <li>No Tags</li>
-            {% endfor %}
-            </ul>
-        </div>
-        </div>
-    </div>
         <div class="container"> 
             <div class="row">
                 <div class="col-md-8 col-lg-8 offset-lg-2">
@@ -100,7 +127,30 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/bootstrap-tagsinput.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
 
+        $('#dismiss, .overlay').on('click', function () {
+            // hide sidebar
+            $('#sidebar').removeClass('active');
+            // hide overlay
+            $('.overlay2').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            // open sidebar
+            $('#sidebar').addClass('active');
+            // fade in the overlay
+            $('.overlay2').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>
 </body>
 
 </html>
