@@ -27,6 +27,7 @@ class PostList(TagMixin, ListView):
     paginate_by = '10'
     queryset = Post.objects.all()
     context_object_name = 'posts'
+    ordering = ['-published_date']
 
 class PostDetail(TagMixin, DetailView):
     template_name = 'blog/post_detail.html'
