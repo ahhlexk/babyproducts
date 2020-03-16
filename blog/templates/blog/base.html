@@ -33,7 +33,7 @@
         </div>
     </nav>
     <div class="wrapper">
-        <!-- Sidebar -->
+        <!-- Sidebar 
         <nav id="sidebar">
             <div id="dismiss">
                 <i class="fa fa-arrow-left"></i>
@@ -52,8 +52,9 @@
                 </li>
             </ul>
         </nav>
-        <!-- Dark Overlay element -->
+        
         <div class="overlay2"></div>
+        -->
     </div>
     {% if request.get_full_path == "/about" %}
     <header class="masthead" style="background-image: url('/static/img/about-bg.jpg');height: 373px;background-position: 50% 50%;">
@@ -80,12 +81,13 @@
         </div>
     </header>
     {% endif %}
+    <!-- Page Content for sidebar
     {% if request.get_full_path == "/about" %}
         <br>
     {% elif request.get_full_path == "/contact" %}
         <br>
     {% else %}
-        <!-- Page Content for sidebar-->
+        
         <div id="content" class="col-md-8 col-lg-8 offset-lg-2">
             <nav>
                 <div class="container-fluid">
@@ -98,6 +100,7 @@
             </nav>
         <br>
     {% endif %}
+    -->
         </div>
         <div class="container"> 
             <div class="row">
@@ -108,7 +111,55 @@
                 </div>
             </div>
         </div>
-    <footer>
+        <footer class="footer">
+        <div class="container">
+            <!--
+            <button onclick="topFunction()" id="to-top" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+            -->
+            <div class="row  row-no-gutters">
+                <div class="col">
+                    <ul class="list-unstyled" id="footer-menu">
+                        <li class="footer-header">Categories</li>
+                        <li><a href={% url 'tagged' 'clothes' %}>Clothes</a></li>
+                        <li><a href={% url 'tagged' 'feeding' %}>Feeding</a></li>
+                        <li><a href={% url 'tagged' 'nursery' %}>Nursery</a></li>
+                        <li><a href={% url 'tagged' 'toiletries' %}>Toiletries</a></li>
+                        <li><a href={% url 'tagged' 'toys' %}>Toys</a></li>
+                        <li><a href={% url 'tagged' 'other' %}>Other</a></li>
+                    </ul>
+                </div>
+            
+                <div class="col">
+                    <ul class="list-unstyled" id="footer-menu">
+                        <li class="footer-header">Products</li>
+                        <li><a href={% url 'tagged' 'bassinet-stand' %}>Bassinet/stand</a></li>
+                        <li><a href={% url 'tagged' 'bath-soap' %}>Bath soap</a></li>
+                        <li><a href={% url 'tagged' 'bathtub' %}>Baththub</a></li>
+                        <li><a href={% url 'tagged' 'bibs' %}>Bibs</a></li>
+                        <li><a href={% url 'tagged' 'bottle-rack' %}>Bottle Rack</a></li>
+                        <li><a href={% url 'tagged' 'bottle-sanitizer' %}>Bottle Sanitizer</a></li>
+                        <li><a href={% url 'tagged' 'bottle-warmer' %}>Bottle warmer</a></li>
+                        <li><a href={% url 'tagged' 'bottles' %}>Bottles</a></li>
+                        <li><a href={% url 'tagged' 'bowls' %}>Bowls</a></li>
+                        <li><a href={% url 'tagged' 'burp-cloth' %}>Burp Cloth</a></li>
+                        <li><a href={% url 'tagged' 'carrier' %}>Carrier</a></li>
+                        <li><a href={% url 'tagged' 'cabinets-crates' %}>Corner Cabinet and Crates</a></li>
+                        <li><a href={% url 'tagged' 'diapers' %}>Diapers</a></li>
+                    </ul>
+                </div>
+
+                <div class="col">
+                    <ul class="list-unstyled" id="footer-menu">
+                        <li class="footer-header">Site Map</li>
+                        <li><a href={% url 'about' %}>About Us</a></li>
+                        <li><a href={% url 'post_list' %}>Blog Posts</a></li>
+                        <li><a href={% url 'contact' %}>Contact Us</a></li>
+                    </ul>
+                </div>
+            
+
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-lg-8 offset-lg-2">
@@ -117,11 +168,11 @@
                         <li class="list-inline-item"><span class="btn" and style="background-color:transparent"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-plus-circle fa-stack-1x fa-inverse" onclick="location.href='{% url 'post_new' %}'"></i></span></span></li>
                         {% endif %}
                     </ul>
-                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Brand 2018</p>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;BabyLOL 2020</p>
                 </div>
             </div>
         </div>
-    </footer>
+        </footer>
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/script.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
