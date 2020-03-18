@@ -29,11 +29,16 @@ class PostList(TagMixin, ListView):
     context_object_name = 'posts'
     ordering = ['-published_date']
 
+
 class PostDetail(TagMixin, DetailView):
     template_name = 'blog/post_detail.html'
     model = Post
-    queryset = Post.objects.all()
     context_object_name = 'post'
+    slug_url_kwarg = 'the_slug'
+    slug_field = 'slug'
+
+
+
 """
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')

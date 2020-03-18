@@ -25,6 +25,7 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         #this line below save every fields of the model instance
         super(Post, self).save(*args, **kwargs)    
+    
 
 
 class Contact(models.Model):

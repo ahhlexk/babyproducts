@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = [
     path('', PostList.as_view(), name='post_list'),
-    path('post/<int:pk>/',PostDetail.as_view(), name='post_detail'),
+    path('post/<slug:the_slug>/',PostDetail.as_view(), name='post_detail'),
     path('post/new/', views.post_new, name = 'post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('contact', views.contact, name='contact'),
