@@ -55,11 +55,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'crispy_forms',
     'django_summernote',
     'taggit',
+    'cloudinary',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -161,3 +163,10 @@ if ENV_ROLE == 'production':
 #Media Files Config
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'ha0lnwwye',
+    'API_KEY': '137116457122638',
+    'API_SECRET': 'QqPf3kxO2bcSXAWTYc2pc8ymZyc',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

@@ -37,8 +37,6 @@ class PostDetail(TagMixin, DetailView):
     slug_url_kwarg = 'the_slug'
     slug_field = 'slug'
 
-
-
 """
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -48,6 +46,7 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post':post})
 """
+
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
