@@ -1,0 +1,202 @@
+    #page-container{
+        position:relative;
+        min-height:100vh;
+    }
+
+@media (max-width:990px){
+    .logo-replace{
+        width:60px;
+        background:url(../img/logo_black.png) center no-repeat;
+        background-size:cover;
+        object-position:-99999px -9999px
+    }
+}
+@media (min-width:990px){
+    .logo-replace{
+        width:72px;
+        height:72px;
+        background:url(../img/logo.png) center no-repeat;
+        background-size:cover
+    }
+}
+    #logo-1{
+        width:55px;
+        height:55px;
+        background:url(../img/logo_black.png) center no-repeat;
+        background-size:cover;
+        display:none
+    }
+    .form-field{
+        background-color: red;
+    }
+
+    #id_email{
+        width:500px;
+        font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+    #id_name{
+        width:500px;
+    }
+    #id_subject{
+        width:500px;
+    }
+    #id_message{
+        width:500px;
+        height:200px
+    }
+    .wrapper {
+        display: block;
+        background-color: chocolate;
+    }
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+    #sidebar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        height: 100vh;
+        z-index: 99999999999;
+        background: #17a2b8;
+        color: #fff;
+        transition: all 0.3s;
+        overflow-y: scroll;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+
+    #dismiss {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        background: #17a2b8;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    #dismiss:hover {
+        background: #fff;
+        color: #17a2b8;
+    }
+
+    .overlay2 {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+    .overlay2.active {
+        display: block;
+        opacity: 1;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #17a2b8;
+    }
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+
+    #sidebar ul li a:hover {
+        color: #17a2b8;
+        background: #fff;
+    }
+
+    #sidebar ul li.active>a,
+    a[aria-expanded="true"] {
+        color: #fff;
+        background: #17a2b8;
+    }
+
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #17a2b8;
+    }
+
+    ul.CTAs {
+        padding: 20px;
+    }
+
+    ul.CTAs a {
+        text-align: center;
+        font-size: 0.9em !important;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    a.download {
+        background: #fff;
+        color: #17a2b8;
+    }
+
+    a.article,
+    a.article:hover {
+        background: #6d7fcc !important;
+        color: #fff !important;
+    }
+    .footer {
+        line-height: 60px;
+        background-color: #7a7a7a62;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    #footer-menu {
+        font-size:14px;
+        line-height:1.8;
+        
+    }
+    .footer-header {
+        display: block;
+        font-size: 1rem;
+        text-transform: uppercase;
+        color:#17a2b8;
+        font-weight: 600;
+        margin: 1rem 0;
+        padding: .4rem 0px;
+        border-bottom: 1px solid black; 
+        letter-spacing: 3px;
+    }
+    #footer-menu-item {
+        line-height:1.8;
+    }
