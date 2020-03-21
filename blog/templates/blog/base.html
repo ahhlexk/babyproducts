@@ -147,25 +147,18 @@
                         <li><a href={% url 'contact' %}>Contact Us</a></li>
                     </ul>
                 </div>
-            
-                <div class="col">
-                    <ul class="list-unstyled" id="footer-menu">
-                        <li class="footer-header">Contact</li>
-                        <li><i class="fa fa-envelope"></i><a href="mailto:babylolsite@gmail.com"> Email</a></li>
-                        <li><i class="fa fa-twitter"></i><a href="https://twitter.com/BabyLOL76245745"> Twitter</a></li>
-                        <li><i class="fa fa-facebook"></i>  Facebook</li>
-                    </ul>
-                </div>
 
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-lg-8 offset-lg-2">
+                <div class="col-md-10 col-lg-8 mx-auto">
                     <ul class="list-inline text-center">
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><a href="mailto:babylolsite@gmail.com"><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></a></span></li>
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><a href="https://twitter.com/BabyLOL76245745"><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a></span></li>
                         {% if user.is_authenticated %}
-                        <li class="list-inline-item"><span class="btn" and style="background-color:transparent"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-plus-circle fa-stack-1x fa-inverse" onclick="location.href='{% url 'post_new' %}'"></i></span></span></li>
-                        {% endif %}
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><a href="location.href='{% url 'post_new' %}'"><i class="fa fa-plus-circle fa-stack-1x fa-inverse"></a></i></span></span></li>
+                        {% endif %}   
                     </ul>
                     <p class="text-muted copyright">Copyright&nbsp;©&nbsp;BabyLOL 2020</p>
                 </div>
